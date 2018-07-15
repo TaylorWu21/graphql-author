@@ -5,3 +5,5 @@
     author.books.create title: Faker::Book.title, genre: Faker::Book.genre
   end
 end
+
+puts "seeded yo"
