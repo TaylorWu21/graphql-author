@@ -6,7 +6,7 @@ gem 'rails', '~> 5.2.0'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'bootsnap', '>= 1.1.0', require: false
-gem 'graphql'
+gem 'graphql', '~> 1.8', '>= 1.8.5'
 
 group :development, :test do
   gem 'pry'
