@@ -5,11 +5,13 @@ import {
   Segment,
   Dimmer,
   Card,
-  Container
+  Container,
+  Header
 } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 import query from '../queries/getAuthors';
+import AuthorForm from './AuthorForm';
 
 class Authors extends Component {
   render() {
@@ -30,6 +32,9 @@ class Authors extends Component {
 
           return (
             <Container>
+              <Header>Create Author</Header>
+              <AuthorForm />
+              <br />
               <Card.Group centered>
                 {data.authors.map(({ id, name }) => (
                 <Card key={id} as={Link} to={`/authors/${id}`}>
