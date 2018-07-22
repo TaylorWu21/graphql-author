@@ -17,19 +17,3 @@ ReactDOM.render(
   </ApolloProvider>,
   document.getElementById('root')
 );
-
-// How apollo can help us query data from the server
-client
-  .query({
-    query: gql `
-      {
-        authors {
-          name
-          books {
-            title
-          }
-        }
-      }
-    `
-  })
-  .then(result => console.log(result));
