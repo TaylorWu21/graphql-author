@@ -13,7 +13,6 @@ const App = () => (
     <Switch>
       <Route exact path='/' component={Authors} />
       <Route path='/authors/:id' component={Author} />
-      <Route path='/books/:id' component={Book} />
       <Route render={() => <div>404</div>} />
     </Switch>
   </Router>
