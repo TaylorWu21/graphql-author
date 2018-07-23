@@ -13,8 +13,13 @@ import {
 } from 'semantic-ui-react';
 
 import query from '../queries/getAuthor';
+import AuthorUpdateForm from './AuthorUpdateForm';
 
 class Author extends Component {
+  state = { edit: false };
+
+  toggleEdit = () => this.setState({ edit: !this.state.edit });
+
   render() {
     const { id } = this.props.match.params;
     return (
@@ -38,8 +43,17 @@ class Author extends Component {
           return (
             <Container>
               <Button onClick={this.props.history.goBack}>Back</Button>
-              <Header as='h1'>{name}</Header>
-              <Header>Age: {age}</Header>
+              {
+                this.state.edit?
+                  <AuthorUpdateForm toggleEdit={this.toggleEdit} author={data.author} />
+                :
+                  <div>
+                    <Header as='h1'>{name}</Header>
+                    <Header>Age: {age}</Header>
+                    <Button onClick={this.toggleEdit}>Edit</Button>
+                  </div>
+              }
+              
               <Card.Group centered>
               {
                 books.map(({ id, title, genre }) => (
