@@ -8,10 +8,10 @@ import {
   Container,
   Header
 } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
 
 import query from '../queries/getAuthors';
 import AuthorForm from './AuthorForm';
+import AuthorCard from './AuthorCard';
 
 class Authors extends Component {
   render() {
@@ -36,12 +36,8 @@ class Authors extends Component {
               <AuthorForm />
               <br />
               <Card.Group centered>
-                {data.authors.map(({ id, name }) => (
-                <Card key={id} as={Link} to={`/authors/${id}`}>
-                  <Card.Content>
-                    <Card.Header>{name}</Card.Header>
-                  </Card.Content>
-                </Card>
+                {data.authors.map(author => (
+                  <AuthorCard key={author.id} author={author} />
                 ))}
               </Card.Group>
             </Container>

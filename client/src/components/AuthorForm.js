@@ -4,7 +4,7 @@ import {
   Input
 } from 'semantic-ui-react';
 import { Mutation } from 'react-apollo';
-import mutation from '../mutations/addAuthor';
+import addAuthor from '../mutations/addAuthor';
 import query from '../queries/getAuthors';
 
 class AuthorForm extends Component {
@@ -26,7 +26,7 @@ class AuthorForm extends Component {
     const { name, age } = this.state;
 
     return (
-      <Mutation mutation={mutation}>
+      <Mutation mutation={addAuthor}>
         {(addAuthor, { data }) => (
           <Form onSubmit={() => this.handleSubmit(addAuthor)}>
             <Form.Field
